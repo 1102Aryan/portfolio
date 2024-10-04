@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+:root {
+    --bg-colour: black;
+    --darker-colour: #090979;
+    --text-colour: #89f7fe;
+    --text-before: #89f6fe80;
+    --text-highlight:#c9f5f8; 
+}
+html {
+    font-size: 60%;
+    overflow-x: hidden;
+}
+body {
+    background-color: var(--bg-colour);
+    color: var(--text-colour);
+}
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 8rem 15%;
+    background-color: transparent;
+    filter: drop-shadow(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 700;
+    flex-direction: row;
+}
+.logo {
+    font-size: 3.5rem;
+    color: var(--text-colour);
+    font-weight: 750;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;  
+    margin-right: 5rem;
+
+}
+.logo:hover {
+    transform: scale(1.1);
+}
+.navbar{
+    gap: 15rem;
+}
+.navbar a{
+    font-size: 2rem;
+    color: var(--text-before);
+    margin-left: 5rem;
+    font-weight: 400;
+    transition: 0.4s ease-in-out;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+.navbar a:hover{
+    color: var(--text-colour);
+    transform: scale(1.1);
+}
+.icons {
+    display: flex;
+    flex-direction: row;
+}
+.icons a{
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 1rem;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--text-before);
+    -webkit-text-fill-color: var(--text-before);
+    border-radius: 60%;
+}
+.icons a:hover {
+    transform: scale(1.1);
+    border: 2px solid var(--text-colour);
+    -webkit-text-fill-color: var(--text-colour);
+    box-shadow: 0 0 25px var(--text-highlight);
+}
+section{
+    min-height: 100vh;
+    padding: 12rem 15%;
+}
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16rem;
+}
+.homecontent {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: flex-end;
+}
+.homecontent h1{
+    font-size: 8.5rem;
+    font-weight: 750;
+    margin-top: 2rem;
+    line-height: 1;
+}
+span {
+    background: linear-gradient(0deg, rgba(4,1,56,1) 5%, #090979 9%, rgba(0,212,255,1) 100%);
+    background-clip: text;
+    color: transparent;
+}
+.homecontent p {
+    font-size: 3rem;
+    font-weight: 550;
+    line-height: 2;
+}
+.about {
+    display: flex;
+    align-items: start;
+    gap: 15rem;
+}
+.aboutcontent {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: start;
+}
+.aboutcontent h1 {
+    font-weight: 750;
+    font-size: 7rem;
+    margin-top: 2rem;
+    line-height: 1;
+}
+.aboutcontent p {
+    font-size: 2.5rem;
+    font-weight: 550;
+    line-height: 2;
+}
+::-webkit-scrollbar {
+    width: 12.5px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--text-colour);
+}
+::-webkit-scrollbar-track {
+    background-color: var(--text-before);
+}
+.contact {
+    display: flex;
+    gap: 10rem;
+}
+.contact h1{
+    margin-bottom: 3rem;
+    font-weight: 600;
+    font-size: 3rem;
+}
+.contact form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    margin: 5rem 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+.contact form .input-box input,
+.contact form textarea{
+    width: 100%;
+    border-radius: 4rem;
+    padding: 2rem;
+    font-size: 2rem;
+    background-color: black;
+    color: var(--text-highlight);
+    border: 2px solid var(--text-colour);
+    margin: 2rem;
+    resize: none;
+    box-sizing: border-box;
+}
+.btn {
+    color: black;
+    font-size: 4rem;
+    font-weight: 600;
+    background: var(--text-colour);
+    border-radius: 3rem;
+    padding: 2rem 15rem;
+    justify-content: center;
+}
+.btn:hover {
+    box-shadow: 0 0 25px var(--text-highlight);
+}
+.projects {
+    display: flex;
+    align-items: start;
+    gap: 15rem;
+}
+.projectscontent {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.projectscontent h1{
+    margin-bottom: 3rem;
+    font-weight: 650;
+    font-size: 4rem;
+}
+.projectbox {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    place-items: center;
+    gap: 3rem;
+    row-gap: 4rem;
+}
+.projectcard {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    border-radius: 3.5rem;
+    gap: 1.5rem;
+    padding: 5.5rem 3rem;
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+.projects .projectcard::after, .projects .projectcard::before{
+    content: '';
+    position: absolute;
+    inset: -0.5rem;
+    height: 100%;
+    width: 100%;
+    padding: 0.6rem 0.6rem;
+    background: conic-gradient(from var(--angle), var(--darker-colour), var(--text-before), var(--text-colour), var(--text-highlight), white, 
+    var(--text-highlight), var(--text-colour), var(--text-before), var(--darker-colour));
+    z-index: -1;
+    border-radius: inherit;
+    animation: rotation 10s linear infinite;
+}
+.projectcard::after{
+    filter: blur(3rem);
+}
+
+@keyframes rotation{
+    0%{
+      --angle: 0deg;
+    }
+    100%{
+      --angle: 360deg;
+    }
+  }
+
+.projectcard img{
+    max-width: 300px;
+    border-radius: 1.5rem;
+    object-fit: cover;
+}
+.projectcard h2{
+    font-size: 3rem;
+    color: var(--text-highlight);
+}
+.projectcard p{
+    font-size: 1.5rem;
+    color: white;
+}
+@media (max-width: 900px) {
+    .contact {
+        gap: 4rem;
+    }
+    .contact h1 {
+        font-size: 2rem;
+    }
+    .contact form {
+        gap: 3rem;
+        margin: 3rem 0;
+    }
+    .contact form .input-box input,
+    .contact form textarea {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    .btn {
+        padding: 1rem 3rem;
+        font-size: 1.5rem;
+    }
+}
+
