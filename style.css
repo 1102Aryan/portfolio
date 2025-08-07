@@ -766,28 +766,29 @@ span {
   }
 
   .projectbox {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 
   .projectcard {
-    padding: 2.5rem 2rem;
-    min-height: 420px;
     max-width: 100%;
+    min-height: 400px;
+    padding: 3rem 2rem;
   }
 
   .projectcard img {
-    max-width: 180px;
+    max-width: 200px;
   }
 
   .projectcard h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .projectcard p {
-    font-size: 1.4rem;
-    -webkit-line-clamp: 4;
+    font-size: 1.5rem;
+    -webkit-line-clamp: 3;
   }
+
 
   .btn {
     padding: 1.2rem 2.5rem;
