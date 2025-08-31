@@ -1250,44 +1250,44 @@ section {
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
   }
 
-  /* HOME SECTION - Better spacing and smaller tags */
+  /* HOME SECTION - Better spacing and larger text */
   .homecontent h1 {
-    font-size: clamp(1.8rem, 4.5vw, 2.5rem);
-    margin-bottom: 0.5rem;
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    margin-bottom: 0.6rem;
   }
 
   .homecontent>p {
-    font-size: clamp(1rem, 2.2vw, 1.2rem);
-    margin-bottom: 0.4rem;
-    line-height: 1.3;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
   }
 
   .homecontent h2 {
-    font-size: 1.6rem;
-    margin: 1.2rem 0 0.8rem 0;
+    font-size: 1.8rem;
+    margin: 1.4rem 0 1rem 0;
   }
 
   .about {
     gap: 1.2rem;
-    font-size: 1rem;
-    margin: 1rem 0;
+    font-size: 1.1rem;
+    margin: 1.2rem 0;
     flex-direction: column;
     align-items: center;
   }
 
   .btn {
-    padding: 0.7rem 1.3rem;
-    font-size: 1rem;
-    margin: 0.6rem 0 1rem 0;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    margin: 0.8rem 0 1.2rem 0;
   }
 
   .category {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
   }
 
   .category h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.3rem;
   }
 
   .skill-tag {
@@ -1521,39 +1521,39 @@ section {
 
   /* HOME SECTION - Better spacing for smaller phones */
   .homecontent h1 {
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-    margin-bottom: 0.4rem;
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+    margin-bottom: 0.5rem;
   }
 
   .homecontent>p {
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    margin-bottom: 0.3rem;
+    font-size: clamp(1rem, 2.3vw, 1.3rem);
+    margin-bottom: 0.4rem;
   }
 
   .homecontent h2 {
-    font-size: 1.4rem;
-    margin: 1rem 0 0.7rem 0;
+    font-size: 1.6rem;
+    margin: 1.2rem 0 0.9rem 0;
   }
 
   .about {
     gap: 1rem;
-    font-size: 0.9rem;
-    margin: 0.8rem 0;
+    font-size: 1rem;
+    margin: 1rem 0;
   }
 
   .btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    margin: 0.5rem 0 0.8rem 0;
+    padding: 0.7rem 1.3rem;
+    font-size: 1rem;
+    margin: 0.7rem 0 1rem 0;
   }
 
   .category {
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.6rem;
   }
 
   .category h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
   }
 
   .skill-tag {
@@ -1662,41 +1662,41 @@ section {
     max-width: none;
   }
 
-  /* HOME SECTION - Minimal spacing with proper gaps */
+  /* HOME SECTION - Minimal spacing with proper gaps and larger text */
   .homecontent h1 {
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
-    margin-bottom: 0.3rem;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    margin-bottom: 0.4rem;
   }
 
   .homecontent>p {
-    font-size: clamp(0.85rem, 1.8vw, 1rem);
-    margin-bottom: 0.2rem;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    margin-bottom: 0.3rem;
   }
 
   .homecontent h2 {
-    font-size: 1.2rem;
-    margin: 0.8rem 0 0.6rem 0;
+    font-size: 1.4rem;
+    margin: 1rem 0 0.8rem 0;
   }
 
   .about {
     gap: 0.8rem;
-    font-size: 0.85rem;
-    margin: 0.6rem 0;
+    font-size: 0.95rem;
+    margin: 0.8rem 0;
   }
 
   .btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    margin: 0.4rem 0 0.7rem 0;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    margin: 0.6rem 0 0.9rem 0;
   }
 
   .category {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
   }
 
   .category h3 {
-    font-size: 1rem;
-    margin-bottom: 0.6rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
 
   .skill-tag {
