@@ -1250,7 +1250,7 @@ section {
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
   }
 
-  /* HOME SECTION - Compact mobile layout */
+  /* HOME SECTION - Better spacing and smaller tags */
   .homecontent h1 {
     font-size: clamp(1.8rem, 4.5vw, 2.5rem);
     margin-bottom: 0.5rem;
@@ -1264,13 +1264,13 @@ section {
 
   .homecontent h2 {
     font-size: 1.6rem;
-    margin: 0.8rem 0 0.6rem 0;
+    margin: 1.2rem 0 0.8rem 0;
   }
 
   .about {
     gap: 1.2rem;
     font-size: 1rem;
-    margin: 0.8rem 0;
+    margin: 1rem 0;
     flex-direction: column;
     align-items: center;
   }
@@ -1278,25 +1278,25 @@ section {
   .btn {
     padding: 0.7rem 1.3rem;
     font-size: 1rem;
-    margin: 0.4rem 0 0.8rem 0;
+    margin: 0.6rem 0 1rem 0;
   }
 
   .category {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .category h3 {
     font-size: 1.2rem;
-    margin-bottom: 0.6rem;
+    margin-bottom: 1rem;
   }
 
   .skill-tag {
-    padding: 0.4rem 0.8rem;
-    font-size: 1rem;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.85rem;
   }
 
   .skills-container {
-    gap: 0.6rem;
+    gap: 0.8rem;
   }
 
   .navbar.active {
@@ -1361,16 +1361,17 @@ section {
     height: 10px;
   }
 
-  /* EXPERIENCE SECTION - Compact cards */
+  /* EXPERIENCE SECTION - Cross-browser mobile fixes */
   .experience-container {
-    padding: 0 1rem;
+    padding: 0 1rem !important;
+    width: 100% !important;
   }
 
   .experience-header {
-    position: relative;
-    transform: none;
-    left: auto;
-    top: auto;
+    position: relative !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
     margin-bottom: 0.8rem;
     padding: 0.6rem 1.2rem;
   }
@@ -1384,27 +1385,66 @@ section {
     font-size: 0.9rem;
   }
 
+  /* Force timeline elements to be hidden on all mobile browsers */
   .timeline-line {
-    display: none;
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .timeline-node {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .experience-item::before {
+    display: none !important;
+    visibility: hidden !important;
+    content: none !important;
+  }
+
+  .experience-item:nth-child(even)::before,
+  .experience-item:nth-child(odd)::before {
+    display: none !important;
+    visibility: hidden !important;
+    content: none !important;
   }
 
   .experience-timeline {
     gap: 0.6rem;
-    flex-direction: column;
-    padding: 0;
+    flex-direction: column !important;
+    padding: 0 !important;
+    width: 100% !important;
+    align-items: stretch !important;
   }
 
   .experience-item {
-    width: 100%;
-    min-width: auto;
-    max-width: none;
+    width: 100% !important;
+    min-width: auto !important;
+    max-width: 100% !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  /* Reset all alternating positions for mobile */
+  .experience-item:nth-child(odd),
+  .experience-item:nth-child(even) {
+    align-items: stretch !important;
+  }
+
+  .experience-item:nth-child(odd) .experience-card,
+  .experience-item:nth-child(even) .experience-card {
+    margin: 0 !important;
+    margin-bottom: 0.6rem !important;
+    margin-top: 0 !important;
   }
 
   .experience-card {
-    width: 100%;
-    padding: 1.2rem;
-    min-height: 180px; /* Reduced from auto */
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.2rem !important;
+    min-height: 180px;
     margin: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .experience-card .card-header {
@@ -1444,14 +1484,6 @@ section {
     padding: 0.2rem 0.5rem;
   }
 
-  .timeline-node {
-    display: none;
-  }
-
-  .experience-item::before {
-    display: none;
-  }
-
   section {
     padding: 8rem 2%;
   }
@@ -1487,7 +1519,7 @@ section {
     max-width: none;
   }
 
-  /* HOME SECTION - Even more compact */
+  /* HOME SECTION - Better spacing for smaller phones */
   .homecontent h1 {
     font-size: clamp(1.6rem, 4vw, 2.2rem);
     margin-bottom: 0.4rem;
@@ -1500,37 +1532,37 @@ section {
 
   .homecontent h2 {
     font-size: 1.4rem;
-    margin: 0.6rem 0 0.5rem 0;
+    margin: 1rem 0 0.7rem 0;
   }
 
   .about {
     gap: 1rem;
     font-size: 0.9rem;
-    margin: 0.6rem 0;
+    margin: 0.8rem 0;
   }
 
   .btn {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
-    margin: 0.3rem 0 0.6rem 0;
+    margin: 0.5rem 0 0.8rem 0;
   }
 
   .category {
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.3rem;
   }
 
   .category h3 {
     font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
   }
 
   .skill-tag {
-    padding: 0.35rem 0.7rem;
-    font-size: 0.9rem;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.8rem;
   }
 
   .skills-container {
-    gap: 0.5rem;
+    gap: 0.7rem;
   }
 
   .projectcard {
@@ -1554,7 +1586,7 @@ section {
     font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   }
 
-  /* EXPERIENCE SECTION - Ultra compact */
+  /* EXPERIENCE SECTION - Force proper layout on all browsers */
   .experience-header h1 {
     font-size: 1.3rem;
   }
@@ -1564,8 +1596,12 @@ section {
   }
 
   .experience-card {
-    padding: 1rem;
-    min-height: 160px;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
+    min-height: 160px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .experience-card .job-title {
@@ -1626,7 +1662,7 @@ section {
     max-width: none;
   }
 
-  /* HOME SECTION - Minimal spacing */
+  /* HOME SECTION - Minimal spacing with proper gaps */
   .homecontent h1 {
     font-size: clamp(1.4rem, 3.5vw, 2rem);
     margin-bottom: 0.3rem;
@@ -1639,40 +1675,40 @@ section {
 
   .homecontent h2 {
     font-size: 1.2rem;
-    margin: 0.5rem 0 0.4rem 0;
+    margin: 0.8rem 0 0.6rem 0;
   }
 
   .about {
     gap: 0.8rem;
     font-size: 0.85rem;
-    margin: 0.5rem 0;
+    margin: 0.6rem 0;
   }
 
   .btn {
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
-    margin: 0.2rem 0 0.5rem 0;
+    margin: 0.4rem 0 0.7rem 0;
   }
 
   .category {
-    margin-bottom: 0.6rem;
+    margin-bottom: 1rem;
   }
 
   .category h3 {
     font-size: 1rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.6rem;
   }
 
   .skill-tag {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
   }
 
   .skills-container {
-    gap: 0.4rem;
+    gap: 0.6rem;
   }
 
-  /* EXPERIENCE SECTION - Minimal */
+  /* EXPERIENCE SECTION - Ensure consistent layout */
   .experience-header {
     padding: 0.5rem 1rem;
     margin-bottom: 0.6rem;
@@ -1687,8 +1723,12 @@ section {
   }
 
   .experience-card {
-    padding: 0.8rem;
-    min-height: 140px;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.8rem !important;
+    min-height: 140px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .experience-card .card-header {
