@@ -1093,18 +1093,79 @@ section {
 /* Responsive design */
 @media (min-width: 1400px) {
   .glass-section {
-    padding: 6rem 8rem;
+    padding: 3rem 8rem;
+    max-width: 1350px;
+  }
+
+  .category {
+    margin-bottom: 1.8rem;
+  }
+
+  .category h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .skill-tag {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .skills-container {
+    gap: 1rem;
+  }
+
+  .experience-timeline {
+    display: flex;
+    gap: 0rem;
+    align-items: center;
+    position: relative;
+    padding: 0 2rem;
+  }
+
+  .experience-item {
+    min-width: 280px;
+    width: 280px;
+  }
+
+  .experience-card {
+    width: 280px;
+    min-height: 280px;
+    padding: 1rem;
+  }
+
+  .experience-item:nth-child(odd) .experience-card {
+    margin-bottom: 37rem;
+  }
+
+  .experience-item:nth-child(even) .experience-card {
+    margin-top: 37rem;
+  }
+
+  .experience-item:nth-child(even)::before {
+    top: 50%;
+    height: 2.5rem;
+  }
+
+  .experience-item:nth-child(odd)::before {
+    bottom: 50%;
+    height: 2.5rem;
+  }
+
+  .projects .glass-section {
+    padding: 0rem 3rem;
+    height: 80%;
   }
 
   .projectbox {
     grid-template-columns: repeat(3, 1fr);
-    max-width: 1800px;
-    gap: 5rem;
+    max-width: 1600px;
+    gap: 4rem;
   }
 
   .projectcard {
-    max-width: 500px;
-    min-height: 580px;
+    max-width: 350px;
+    min-height: 380px;
   }
 }
 
@@ -1123,8 +1184,9 @@ section {
 
   .projectcard {
     max-width: 450px;
-    min-height: 540px;
+    min-height: 440px;
   }
+
 }
 
 @media (min-width: 900px) and (max-width: 1199px) {
@@ -1147,11 +1209,11 @@ section {
     gap: 4rem;
   }
 
-
   .projectcard {
     max-width: 450px;
     min-height: 500px;
   }
+
 }
 
 @media (min-width: 769px) and (max-width: 899px) {
