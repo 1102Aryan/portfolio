@@ -5,14 +5,14 @@
 }
 
 :root {
-  --bg-colour: #0a0a0a;
-  --darker-colour: #090979;
+  --bg-colour: #000000;
+  --darker-colour: #050520;
   --text-colour: #6bb6ff;
   --text-before: #b8c5d1;
   --text-highlight: #8bb9d3;
   --text-muted: #9ca3af;
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 html {
@@ -33,7 +33,7 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  background: linear-gradient(135deg, #000000 0%, #0a0a1a 50%, #0f1420 100%);
   color: var(--text-colour);
   overflow: hidden;
   height: 100vh;
@@ -63,9 +63,9 @@ body::before {
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(circle at 20% 50%, rgba(107, 182, 255, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(139, 185, 211, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(9, 9, 121, 0.08) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(107, 182, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 185, 211, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(9, 9, 121, 0.04) 0%, transparent 50%);
   animation: float 20s ease-in-out infinite;
   z-index: -1;
 }
@@ -93,16 +93,16 @@ header {
   top: 0;
   left: 0;
   padding: 2rem 8%;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
@@ -132,14 +132,15 @@ header {
   text-decoration: none;
   padding: 1rem 2rem;
   border-radius: 2rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .navbar a:hover {
   color: var(--text-colour);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.7);
+  border-color: rgba(107, 182, 255, 0.3);
   transform: translateY(-2px);
 }
 
@@ -156,9 +157,9 @@ header {
   height: 4rem;
   font-size: 2rem;
   color: var(--text-before);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 50%;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -166,7 +167,7 @@ header {
 
 .icons a:hover {
   color: var(--text-colour);
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
   transform: scale(1.1);
 }
 
@@ -189,15 +190,15 @@ section {
 
 /* Glass morphism sections - Original sizes maintained */
 .glass-section {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(30px) saturate(120%);
+  -webkit-backdrop-filter: blur(30px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 3rem;
   padding: 5rem 4rem;
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
   width: 100%;
   height: 80%;
   max-width: 1700px;
@@ -209,8 +210,8 @@ section {
 .glass-section:hover {
   transform: translateY(-5px);
   box-shadow:
-    0 16px 64px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 16px 64px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 /* Home section - Professional improvements */
@@ -254,19 +255,22 @@ section {
 .btn {
   display: inline-block;
   padding: 1.2rem 4rem;
-  background: var(--text-colour);
-  color: #ffffff;
+  background: rgba(107, 182, 255, 0.2);
+  color: var(--text-colour);
   text-decoration: none;
   border-radius: 3rem;
+  border: 1px solid rgba(107, 182, 255, 0.3);
   font-weight: 600;
   font-size: 1.4rem;
   transition: all 0.3s;
   margin: 0rem 0 0rem 0;
+  backdrop-filter: blur(10px);
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  background: #5fa3e8;
+  background: rgba(107, 182, 255, 0.3);
+  border-color: var(--text-colour);
 }
 
 /* Skills Section - Professional & Centered */
@@ -299,7 +303,7 @@ section {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: var(--text-colour);
+  background: rgba(107, 182, 255, 0.3);
   border-radius: 2px;
 }
 
@@ -313,9 +317,9 @@ section {
 }
 
 .skill-tag {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-before);
   padding: 1rem 2rem;
   border-radius: 50px;
@@ -331,7 +335,7 @@ section {
 
 .skill-tag:hover {
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
   border-color: var(--text-colour);
   color: var(--text-colour);
 }
@@ -520,12 +524,12 @@ section {
   transform: translateX(-50%);
   text-align: center;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(30px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 2rem;
   padding: 1.5rem 3rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .experience-header h1 {
@@ -550,9 +554,9 @@ section {
   height: 3px;
   background: linear-gradient(to right,
       transparent 0%,
-      rgba(255, 255, 255, 0.3) 5%,
-      var(--text-colour) 50%,
-      rgba(255, 255, 255, 0.3) 95%,
+      rgba(255, 255, 255, 0.1) 5%,
+      rgba(107, 182, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.1) 95%,
       transparent 100%);
   transform: translateY(-50%);
   z-index: 1;
@@ -624,8 +628,8 @@ section {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--glass-bg);
-  border: 3px solid var(--text-colour);
+  background: rgba(0, 0, 0, 0.6);
+  border: 3px solid rgba(107, 182, 255, 0.4);
   backdrop-filter: blur(10px);
   z-index: 10;
   transition: all 0.3s ease;
@@ -639,7 +643,7 @@ section {
   transform: translate(-50%, -50%);
   width: 8px;
   height: 8px;
-  background: var(--text-colour);
+  background: rgba(107, 182, 255, 0.5);
   border-radius: 50%;
   opacity: 0;
   transition: all 0.3s ease;
@@ -667,9 +671,9 @@ section {
 }
 
 .experience-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(30px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 2rem;
   padding: 2.5rem;
   width: 350px;
@@ -726,8 +730,8 @@ section {
   width: 45px;
   height: 45px;
   border-radius: 12px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -754,13 +758,13 @@ section {
 }
 
 .experience-period {
-  background: rgba(107, 182, 255, 0.15);
+  background: rgba(107, 182, 255, 0.05);
   padding: 0.4rem 1rem;
   border-radius: 1rem;
   font-size: 1rem;
   font-weight: 500;
   color: var(--text-highlight);
-  border: 1px solid rgba(107, 182, 255, 0.3);
+  border: 1px solid rgba(107, 182, 255, 0.15);
   white-space: nowrap;
 }
 
@@ -785,18 +789,19 @@ section {
 }
 
 .skills-tags .skill-tag {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
   padding: 0.3rem 0.8rem;
   border-radius: 1rem;
   font-size: 0.8rem;
   font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
 }
 
 .skills-tags .skill-tag:hover {
-  background: rgba(107, 182, 255, 0.2);
+  background: rgba(107, 182, 255, 0.1);
   transform: translateY(-1px);
+  border-color: rgba(107, 182, 255, 0.3);
 }
 
 @keyframes slideInUp {
@@ -847,9 +852,9 @@ section {
 }
 
 .projectcard {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(30px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 2rem;
   padding: 4rem 3rem;
   text-align: center;
@@ -953,9 +958,9 @@ section {
   flex: 1;
   padding: 1.8rem 2.5rem;
   font-size: 1.7rem;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.5rem;
   color: var(--text-colour);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -994,20 +999,21 @@ section {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-dot.active {
-  background: var(--text-colour);
+  background: rgba(107, 182, 255, 0.3);
+  border-color: rgba(107, 182, 255, 0.5);
   transform: scale(1.3);
 }
 
 .nav-dot:hover {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
   transform: scale(1.1);
 }
 
@@ -1299,17 +1305,17 @@ section {
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     flex-direction: column;
     padding: 2rem 0;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
   }
 
   /* HOME SECTION - Better spacing and larger text */
@@ -1372,9 +1378,9 @@ section {
     padding: 1.5rem 2rem;
     margin: 0.5rem 2rem;
     text-align: center;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 1.5rem;
   }
 
