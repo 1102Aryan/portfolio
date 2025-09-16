@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
   <link rel="icon" type="image/svg+xml" href="resources/aryan_logo.svg">
-<link rel="icon" type="image/x-icon" href="resources/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
@@ -157,30 +157,6 @@
             </div>
           </div>
 
-          <!-- <div class="category">
-            <h3>Other Tools</h3>
-            <div class="skills-container">
-              <div class="skill-tag github">
-                <i class="fab fa-github" title="GitHub"></i>
-                <span>GitHub</span>
-              </div>
-
-              <div class="skill-tag agile">
-                <i class="fas fa-project-diagram" title="Agile Methodologies"></i>
-                <span>Agile Methodologies</span>
-              </div>
-
-              <div class="skill-tag jira">
-                <i class="fab fa-jira" title="Jira"></i>
-                <span>Jira</span>
-              </div>
-
-              <div class="skill-tag gcp">
-                <i class="fab fa-google" title="Google Cloud Platform"></i>
-                <span>Google Cloud Platform</span>
-              </div>
-            </div>
-          </div> -->
     </section>
     <section class="experience" id="experience">
       <div class="experience-content">
@@ -301,7 +277,8 @@
             <div class="projectcard">
               <img src="resources/playlistCurator.png" alt="Playlist Curator">
               <h2>Playlist Curator</h2>
-              <p>Transform your chaotic music library into genre-based playlists in minutes. Available soon on Play Store.</p>
+              <p>Transform your chaotic music library into genre-based playlists in minutes. Available soon on Play
+                Store.</p>
               <a href="#" class="btn" target="_blank" rel="noopener noreferrer">View</a>
             </div>
             <div class="projectcard">
@@ -309,7 +286,8 @@
               <h2>Video To Album Cover</h2>
               <p>Video To Album Cover is an extension for Youtube Music that removes pesky videos and shows the music
                 cover instead to provide less distractions.</p>
-              <a href="https://chromewebstore.google.com/detail/video-to-album-cover-for/hpdfnknolcfbimcnngknidjgpddjfhgl?authuser=1&hl=en-GB" class="btn" target="_blank" rel="noopener noreferrer">View</a>
+              <a href="https://chromewebstore.google.com/detail/video-to-album-cover-for/hpdfnknolcfbimcnngknidjgpddjfhgl?authuser=1&hl=en-GB"
+                class="btn" target="_blank" rel="noopener noreferrer">View</a>
             </div>
           </div>
         </div>
@@ -365,6 +343,13 @@
       let targetSection = 0;
       let animationId = null;
 
+      // Add CSS class for hardware acceleration on mobile
+      if ('ontouchstart' in window) {
+        container.style.willChange = 'transform';
+        container.style.backfaceVisibility = 'hidden';
+        container.style.perspective = '1000px';
+      }
+
       // Apple-style easing function
       function easeInOutCubic(t) {
         return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
@@ -403,9 +388,9 @@
           const progress = Math.min(elapsed / duration, 1);
           const easedProgress = easeInOutCubic(progress);
 
-          // Main container movement
+          // Main container movement - use transform3d for hardware acceleration
           const currentPosition = startPosition + (distance * easedProgress);
-          container.style.transform = `translateX(-${currentPosition}px)`;
+          container.style.transform = `translate3d(-${currentPosition}px, 0, 0)`;
 
           // Parallax effect on sections
           sections.forEach((section, index) => {
@@ -546,11 +531,30 @@
         e.preventDefault();
       }, { passive: false });
 
-      // Enhanced touch with momentum and rubber band effect
+      // OPTIMIZED TOUCH HANDLING FOR MOBILE
       let startX = 0, startY = 0, currentX = 0;
       let isSwipeActive = false;
       let swipeVelocity = 0;
       let lastTouchTime = 0;
+      let touchMoveRafId = null;
+      let touchDeltaX = 0;
+
+      // Function to update position during touch (using RAF for smoothness)
+      function updateTouchPosition() {
+        if (!isSwipeActive || isNavigating) return;
+
+        // Rubber band effect at edges
+        const currentPos = currentSection * window.innerWidth;
+        let resistance = 1;
+
+        if ((currentSection === 0 && touchDeltaX > 0) ||
+          (currentSection === sections.length - 1 && touchDeltaX < 0)) {
+          resistance = 0.3;
+        }
+
+        // Use transform3d for hardware acceleration
+        container.style.transform = `translate3d(-${currentPos - (touchDeltaX * resistance)}px, 0, 0)`;
+      }
 
       container.addEventListener('touchstart', function (e) {
         if (isNavigating) return;
@@ -561,42 +565,60 @@
         isSwipeActive = true;
         swipeVelocity = 0;
         lastTouchTime = Date.now();
-      });
+        touchDeltaX = 0;
+
+        // Add class to disable transitions during touch
+        container.classList.add('no-transition');
+      }, { passive: true });
 
       container.addEventListener('touchmove', function (e) {
         if (!isSwipeActive || isNavigating) return;
 
-        e.preventDefault();
         currentX = e.touches[0].clientX;
-        const deltaX = currentX - startX;
+        const currentY = e.touches[0].clientY;
+        touchDeltaX = currentX - startX;
+        const deltaY = currentY - startY;
+
+        // Only prevent default if horizontal swipe is detected
+        if (Math.abs(touchDeltaX) > Math.abs(deltaY)) {
+          e.preventDefault();
+        }
+
         const now = Date.now();
         const timeDelta = now - lastTouchTime;
 
         if (timeDelta > 0) {
-          swipeVelocity = deltaX / timeDelta;
+          swipeVelocity = touchDeltaX / timeDelta;
         }
 
-        // Rubber band effect at edges
-        const currentPos = currentSection * window.innerWidth;
-        let resistance = 1;
-
-        if ((currentSection === 0 && deltaX > 0) ||
-          (currentSection === sections.length - 1 && deltaX < 0)) {
-          resistance = 0.3;
+        // Use RAF for smooth updates
+        if (!touchMoveRafId) {
+          touchMoveRafId = requestAnimationFrame(() => {
+            updateTouchPosition();
+            touchMoveRafId = null;
+          });
         }
 
-        container.style.transform = `translateX(-${currentPos - (deltaX * resistance)}px)`;
         lastTouchTime = now;
-      });
+      }, { passive: false });
 
       container.addEventListener('touchend', function (e) {
         if (!isSwipeActive) return;
 
+        // Cancel any pending RAF
+        if (touchMoveRafId) {
+          cancelAnimationFrame(touchMoveRafId);
+          touchMoveRafId = null;
+        }
+
+        // Remove no-transition class
+        container.classList.remove('no-transition');
+
         const deltaX = currentX - startX;
         const threshold = window.innerWidth * 0.2;
 
-        // Reset container position
-        container.style.transform = `translateX(-${currentSection * window.innerWidth}px)`;
+        // Reset container position with hardware acceleration
+        container.style.transform = `translate3d(-${currentSection * window.innerWidth}px, 0, 0)`;
 
         // Determine navigation based on swipe distance and velocity
         if (Math.abs(deltaX) > threshold || Math.abs(swipeVelocity) > 0.5) {
@@ -608,6 +630,17 @@
         }
 
         isSwipeActive = false;
+      }, { passive: true });
+
+      // Handle touch cancel
+      container.addEventListener('touchcancel', function () {
+        if (touchMoveRafId) {
+          cancelAnimationFrame(touchMoveRafId);
+          touchMoveRafId = null;
+        }
+        isSwipeActive = false;
+        container.classList.remove('no-transition');
+        container.style.transform = `translate3d(-${currentSection * window.innerWidth}px, 0, 0)`;
       });
 
       // Navigation clicks with haptic-like feedback
@@ -667,10 +700,11 @@
         mobileMenuBtn.classList.toggle('active');
         navbar.classList.toggle('active');
 
-        if (!isMenuOpen) {
-          body.classList.add('menu-open');
+        // Note: 'body' variable wasn't defined in original, using document.body
+        if (navbar.classList.contains('active')) {
+          document.body.classList.add('menu-open');
         } else {
-          body.classList.remove('menu-open');
+          document.body.classList.remove('menu-open');
         }
       });
 
